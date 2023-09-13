@@ -1,0 +1,25 @@
+# @name get-prompts
+GET http://localhost:3333/prompts
+
+###
+
+# @ name upload
+POST http://localhost:3333/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="song2.mp3"
+Content-Type: audio/mpeg
+
+< ./song2.mp3
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# @name create-transcription
+POST http://localhost:3333/videos/99c26acc-0317-4a5b-bb0f-cc07af10f150/transcription
+Content-Type: application/json
+
+{
+  "prompt": "gospel, miracle"
+}
